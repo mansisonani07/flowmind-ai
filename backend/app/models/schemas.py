@@ -9,7 +9,7 @@ from pydantic import BaseModel, Field, field_validator
 
 class QueryRequest(BaseModel):
     question: str
-    user_phone: str = unknown
+    user_phone: str = "unknown"
 
     @field_validator("question")
     @classmethod
