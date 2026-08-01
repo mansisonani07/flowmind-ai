@@ -8,7 +8,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 
 from app.config import settings
-from app.middleware.rate_limiter import RateLimiter, create_rate_limit_middleware
 from app.utils.logger import logger, setup_logger
 
 
@@ -75,8 +74,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-rate_limiter = RateLimiter()
-app.add_middleware(create_rate_limit_middleware(rate_limiter))
 
 
 @app.exception_handler(ValueError)
