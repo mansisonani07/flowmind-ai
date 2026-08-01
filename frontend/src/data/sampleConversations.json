@@ -1,0 +1,271 @@
+[
+  {
+    "id": "conv-001",
+    "question": "What are the vegetarian options on the menu?",
+    "answer": "The restaurant offers several vegetarian dishes including Grilled Vegetable Pasta ($14.99), Margherita Pizza ($12.99), Garden Fresh Salad ($9.99), and Mushroom Risotto ($16.99). All vegetarian items are clearly marked with a green leaf icon on the menu. We also offer daily vegetarian specials \u2014 ask your server for today's selection.",
+    "answer_preview": "The restaurant offers several vegetarian dishes including Grilled Vegetable Pasta, Margherita Pizza, Garden Salad, and Mushroom Risotto.",
+    "confidence": 0.95,
+    "timestamp": "2026-07-30T15:19:37.636631+00:00",
+    "source_document": "restaurant_menu.pdf",
+    "escalated": false,
+    "category": "menu",
+    "sentiment": "positive",
+    "starred": true,
+    "tags": [
+      "vegetarian",
+      "menu",
+      "popular"
+    ]
+  },
+  {
+    "id": "conv-002",
+    "question": "What are your clinic's opening hours?",
+    "answer": "The clinic is open Monday to Friday from 8:00 AM to 6:00 PM, and Saturday from 9:00 AM to 1:00 PM. We are closed on Sundays and public holidays. Emergency appointments are available outside regular hours by calling our 24/7 hotline at (555) 123-4567.",
+    "answer_preview": "The clinic is open Monday to Friday 8 AM\u20136 PM, Saturday 9 AM\u20131 PM, closed Sundays and holidays.",
+    "confidence": 0.98,
+    "timestamp": "2026-07-30T13:49:37.636631+00:00",
+    "source_document": "clinic_services.pdf",
+    "escalated": false,
+    "category": "general",
+    "sentiment": "neutral",
+    "starred": false,
+    "tags": [
+      "hours",
+      "scheduling"
+    ]
+  },
+  {
+    "id": "conv-003",
+    "question": "How much does the premium coaching package cost?",
+    "answer": "The premium coaching package is priced at $299/month and includes 8 one-on-one sessions (60 min each), unlimited messaging support, personalized action plans, and quarterly progress reviews. A 6-month commitment is required for the premium tier, with a 10% discount for annual prepayment ($3,229/year instead of $3,588).",
+    "answer_preview": "Premium coaching is $299/month with 8 sessions, unlimited messaging, and quarterly reviews.",
+    "confidence": 0.91,
+    "timestamp": "2026-07-30T12:49:37.636631+00:00",
+    "source_document": "coaching_faq.pdf",
+    "escalated": false,
+    "category": "pricing",
+    "sentiment": "neutral",
+    "starred": true,
+    "tags": [
+      "pricing",
+      "premium",
+      "packages"
+    ]
+  },
+  {
+    "id": "conv-004",
+    "question": "Do you offer gluten-free options?",
+    "answer": "Yes, we have a dedicated gluten-free menu section. Popular items include GF Cauliflower Crust Pizza ($14.99), Quinoa Power Bowl ($13.99), and Rice Flour Pancakes ($10.99). All gluten-free items are prepared in a separate kitchen area to prevent cross-contamination. Please inform your server about any allergies.",
+    "answer_preview": "Yes, we offer GF Pizza, Quinoa Bowl, and Rice Flour Pancakes prepared in a separate area.",
+    "confidence": 0.88,
+    "timestamp": "2026-07-30T10:49:37.636631+00:00",
+    "source_document": "restaurant_menu.pdf",
+    "escalated": true,
+    "category": "dietary",
+    "sentiment": "positive",
+    "starred": false,
+    "tags": [
+      "gluten-free",
+      "allergies",
+      "dietary"
+    ]
+  },
+  {
+    "id": "conv-005",
+    "question": "What insurance plans do you accept?",
+    "answer": "We accept most major insurance plans including Blue Cross Blue Shield, Aetna, Cigna, United Healthcare, and Medicare. We also accept Medicaid for qualifying patients. For specific plan verification, please contact our billing department at (555) 987-6543 or bring your insurance card to your first appointment.",
+    "answer_preview": "We accept Blue Cross Blue Shield, Aetna, Cigna, United Healthcare, Medicare, and Medicaid.",
+    "confidence": 0.92,
+    "timestamp": "2026-07-30T07:49:37.636631+00:00",
+    "source_document": "clinic_services.pdf",
+    "escalated": false,
+    "category": "billing",
+    "sentiment": "neutral",
+    "starred": false,
+    "tags": [
+      "insurance",
+      "billing",
+      "payment"
+    ]
+  },
+  {
+    "id": "conv-006",
+    "question": "What's included in the basic coaching plan?",
+    "answer": "The basic coaching plan costs $99/month and includes 4 one-on-one sessions (45 min each), email support (48-hour response time), and a monthly group workshop. Action plans are provided monthly. You can upgrade to premium at any time \u2014 remaining sessions will be prorated.",
+    "answer_preview": "Basic plan: $99/month with 4 sessions, email support, and monthly group workshop.",
+    "confidence": 0.94,
+    "timestamp": "2026-07-29T14:49:37.636631+00:00",
+    "source_document": "coaching_faq.pdf",
+    "escalated": false,
+    "category": "pricing",
+    "sentiment": "neutral",
+    "starred": false,
+    "tags": [
+      "pricing",
+      "basic",
+      "packages"
+    ]
+  },
+  {
+    "id": "conv-007",
+    "question": "Can I make a reservation for 8 people?",
+    "answer": "Yes! We accept reservations for parties of all sizes. For groups of 8 or more, we recommend calling at least 24 hours in advance at (555) 456-7890. We have a private dining room available for groups of 10-20 guests (requires 48-hour notice). A 15% gratuity is automatically added for parties of 8+.",
+    "answer_preview": "Reservations for 8+ people recommended 24h in advance. Private dining room available for 10-20 guests.",
+    "confidence": 0.89,
+    "timestamp": "2026-07-29T11:49:37.636631+00:00",
+    "source_document": "restaurant_menu.pdf",
+    "escalated": false,
+    "category": "reservation",
+    "sentiment": "positive",
+    "starred": true,
+    "tags": [
+      "reservation",
+      "groups",
+      "private-dining"
+    ]
+  },
+  {
+    "id": "conv-008",
+    "question": "Do you provide telemedicine consultations?",
+    "answer": "Yes, we offer telemedicine consultations for follow-up visits, prescription renewals, and initial consultations for non-emergency conditions. Sessions are conducted via our secure video platform. Telemedicine appointments are available Monday-Friday 9 AM-5 PM and cost the same as in-person visits.",
+    "answer_preview": "Yes, telemedicine is available for follow-ups, renewals, and non-emergency consultations via secure video.",
+    "confidence": 0.96,
+    "timestamp": "2026-07-29T09:49:37.636631+00:00",
+    "source_document": "clinic_services.pdf",
+    "escalated": false,
+    "category": "services",
+    "sentiment": "positive",
+    "starred": false,
+    "tags": [
+      "telemedicine",
+      "virtual",
+      "appointments"
+    ]
+  },
+  {
+    "id": "conv-009",
+    "question": "What is your cancellation policy for coaching?",
+    "answer": "Sessions can be cancelled or rescheduled up to 24 hours before the scheduled time without penalty. Cancellations within 24 hours are charged at 50% of the session fee. No-shows are charged the full session fee. Emergency exceptions are handled on a case-by-case basis by contacting your coach directly.",
+    "answer_preview": "Free cancellation 24h in advance. Within 24h: 50% fee. No-shows: full fee charged.",
+    "confidence": 0.93,
+    "timestamp": "2026-07-29T07:49:37.636631+00:00",
+    "source_document": "coaching_faq.pdf",
+    "escalated": false,
+    "category": "policy",
+    "sentiment": "neutral",
+    "starred": false,
+    "tags": [
+      "cancellation",
+      "policy",
+      "scheduling"
+    ]
+  },
+  {
+    "id": "conv-010",
+    "question": "What are today's special dishes?",
+    "answer": "I'm sorry, I don't have access to real-time daily specials as they change each day. However, I can tell you about our regular featured items: Chef's Signature Grilled Salmon ($22.99), Truffle Mushroom Burger ($18.99), and Seasonal Fruit Tart ($8.99). Please call (555) 456-7890 for today's daily specials.",
+    "answer_preview": "I don't have real-time daily specials. Regular features include Grilled Salmon, Truffle Burger, and Fruit Tart.",
+    "confidence": 0.65,
+    "timestamp": "2026-07-28T15:49:37.636631+00:00",
+    "source_document": "restaurant_menu.pdf",
+    "escalated": true,
+    "category": "menu",
+    "sentiment": "neutral",
+    "starred": false,
+    "tags": [
+      "specials",
+      "daily",
+      "featured"
+    ]
+  },
+  {
+    "id": "conv-011",
+    "question": "How do I prepare for my first clinic visit?",
+    "answer": "For your first visit, please bring: a valid photo ID, your insurance card, a list of current medications, any relevant medical records or test results, and a completed new patient form (available on our website). Arrive 15 minutes early to complete paperwork. Fasting may be required for certain blood tests \u2014 our staff will advise you when scheduling.",
+    "answer_preview": "Bring photo ID, insurance card, medication list, medical records. Arrive 15 min early for paperwork.",
+    "confidence": 0.97,
+    "timestamp": "2026-07-28T15:49:37.636631+00:00",
+    "source_document": "clinic_services.pdf",
+    "escalated": false,
+    "category": "general",
+    "sentiment": "neutral",
+    "starred": true,
+    "tags": [
+      "first-visit",
+      "preparation",
+      "checklist"
+    ]
+  },
+  {
+    "id": "conv-012",
+    "question": "Can I switch coaching plans mid-month?",
+    "answer": "Yes, you can switch plans at any time. When upgrading, the price difference is prorated for the remainder of the billing cycle. When downgrading, the new rate takes effect at the start of the next billing cycle. Any unused sessions from your current plan roll over for 30 days after the switch.",
+    "answer_preview": "Yes, switch anytime. Upgrades are prorated. Downgrades take effect next cycle. Sessions roll over 30 days.",
+    "confidence": 0.9,
+    "timestamp": "2026-07-28T03:49:37.636631+00:00",
+    "source_document": "coaching_faq.pdf",
+    "escalated": false,
+    "category": "pricing",
+    "sentiment": "neutral",
+    "starred": false,
+    "tags": [
+      "switch",
+      "upgrade",
+      "plans"
+    ]
+  },
+  {
+    "id": "conv-013",
+    "question": "Do you have a kids menu?",
+    "answer": "Yes! Our kids menu (ages 10 and under) includes: Mini Cheese Pizza ($7.99), Chicken Nuggets with Fries ($8.99), Mac & Cheese ($6.99), and Grilled Cheese Sandwich ($5.99). All kids meals come with a choice of apple juice, milk, or soda, and a complimentary dessert (ice cream or fruit cup).",
+    "answer_preview": "Yes, kids menu includes Mini Pizza, Nuggets, Mac & Cheese, Grilled Cheese with drink and dessert.",
+    "confidence": 0.94,
+    "timestamp": "2026-07-27T15:49:37.636631+00:00",
+    "source_document": "restaurant_menu.pdf",
+    "escalated": false,
+    "category": "menu",
+    "sentiment": "positive",
+    "starred": false,
+    "tags": [
+      "kids",
+      "children",
+      "menu"
+    ]
+  },
+  {
+    "id": "conv-014",
+    "question": "What lab services are available on-site?",
+    "answer": "Our on-site lab provides: complete blood count (CBC), comprehensive metabolic panel, lipid panel, HbA1c, thyroid function tests, urinalysis, rapid strep testing, flu testing, and COVID-19 PCR testing. Most results are available within 24-48 hours. Advanced testing is sent to our partner lab (results in 3-5 business days).",
+    "answer_preview": "On-site lab: CBC, metabolic panel, lipid panel, HbA1c, thyroid, urinalysis, rapid strep/flu/COVID tests.",
+    "confidence": 0.96,
+    "timestamp": "2026-07-26T15:49:37.636631+00:00",
+    "source_document": "clinic_services.pdf",
+    "escalated": false,
+    "category": "services",
+    "sentiment": "positive",
+    "starred": false,
+    "tags": [
+      "lab",
+      "testing",
+      "on-site"
+    ]
+  },
+  {
+    "id": "conv-015",
+    "question": "How long is a typical coaching session?",
+    "answer": "Session lengths vary by plan: Basic plan sessions are 45 minutes, Premium plan sessions are 60 minutes, and Enterprise plan sessions are 90 minutes. The first session (intake) is typically 15-20 minutes longer for goal-setting and assessment. All sessions include 5 minutes for recap and next-step planning.",
+    "answer_preview": "Basic: 45 min, Premium: 60 min, Enterprise: 90 min. First session is 15-20 min longer for intake.",
+    "confidence": 0.93,
+    "timestamp": "2026-07-26T03:49:37.636631+00:00",
+    "source_document": "coaching_faq.pdf",
+    "escalated": false,
+    "category": "general",
+    "sentiment": "neutral",
+    "starred": false,
+    "tags": [
+      "duration",
+      "sessions",
+      "plans"
+    ]
+  }
+]

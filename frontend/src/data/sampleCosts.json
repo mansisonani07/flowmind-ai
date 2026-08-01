@@ -1,0 +1,38 @@
+{
+  "summary": {
+    "tokens_today": 42500,
+    "cost_today": 0.00,
+    "cost_this_week": 0.00,
+    "cost_per_query": 0.000,
+    "projected_monthly": 0.00,
+    "budget_limit": 50.00,
+    "budget_used_percent": 0.0
+  },
+  "daily_costs": [
+    {"date": "Jul 24", "cost": 0.00, "tokens": 32000},
+    {"date": "Jul 25", "cost": 0.00, "tokens": 38000},
+    {"date": "Jul 26", "cost": 0.00, "tokens": 41000},
+    {"date": "Jul 27", "cost": 0.00, "tokens": 36000},
+    {"date": "Jul 28", "cost": 0.00, "tokens": 44000},
+    {"date": "Jul 29", "cost": 0.00, "tokens": 48000},
+    {"date": "Jul 30", "cost": 0.00, "tokens": 42500}
+  ],
+  "free_tier_usage": {
+    "groq_api": {"used": 225000, "limit": 500000, "percent": 45, "label": "Groq API Calls"},
+    "storage": {"used": 0.7, "limit": 6.0, "percent": 12, "label": "Vector Storage (GB)"},
+    "bandwidth": {"used": 0.8, "limit": 10.0, "percent": 8, "label": "Bandwidth (GB)"},
+    "documents": {"used": 3, "limit": 10, "percent": 30, "label": "Documents"}
+  },
+  "feature_breakdown": [
+    {"name": "Query Processing", "tokens": 180000, "percent": 42},
+    {"name": "Embedding Generation", "tokens": 120000, "percent": 28},
+    {"name": "Document Chunking", "tokens": 65000, "percent": 15},
+    {"name": "Analytics & Logging", "tokens": 40000, "percent": 10},
+    {"name": "Other", "tokens": 23000, "percent": 5}
+  ],
+  "optimization_tips": [
+    {"title": "Enable Query Caching", "description": "Cache frequent queries to reduce repeated API calls. Estimated savings: 25-30% on tokens.", "impact": "high", "savings": "$0.00 potential"},
+    {"title": "Use Smaller Embedding Model", "description": "Switch from embedding-large to embedding-llama for 40% less token usage with minimal accuracy loss.", "impact": "medium", "savings": "$0.00 potential"},
+    {"title": "Set Budget Alerts", "description": "Configure automatic alerts at 50%, 75%, and 90% of your monthly budget to avoid overages.", "impact": "low", "savings": "Prevent surprises"}
+  ]
+}

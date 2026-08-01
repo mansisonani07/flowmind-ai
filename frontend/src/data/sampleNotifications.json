@@ -1,0 +1,152 @@
+[
+  {
+    "id": "notif-001",
+    "type": "conversation",
+    "icon": "MessageSquare",
+    "title": "New Conversation Escalated",
+    "description": "A query about gluten-free options was escalated due to low confidence (0.88). Requires human review.",
+    "timestamp": "2026-07-30T15:34:49.602924+00:00",
+    "read": false,
+    "priority": "high"
+  },
+  {
+    "id": "notif-002",
+    "type": "document",
+    "icon": "FileText",
+    "title": "Document Processing Complete",
+    "description": "coaching_faq.pdf has been successfully processed into 62 chunks and is now searchable.",
+    "timestamp": "2026-07-30T13:19:49.602924+00:00",
+    "read": false,
+    "priority": "info"
+  },
+  {
+    "id": "notif-003",
+    "type": "system",
+    "icon": "Settings",
+    "title": "System Update Available",
+    "description": "FlowMind AI v2.1.0 is available with improved RAG accuracy and new analytics features.",
+    "timestamp": "2026-07-30T12:19:49.602924+00:00",
+    "read": false,
+    "priority": "info"
+  },
+  {
+    "id": "notif-004",
+    "type": "escalation",
+    "icon": "AlertTriangle",
+    "title": "Low Confidence Alert",
+    "description": "Query about daily specials received confidence score of 0.65 \u2014 below threshold. Auto-escalated.",
+    "timestamp": "2026-07-29T11:49:49.602924+00:00",
+    "read": false,
+    "priority": "high"
+  },
+  {
+    "id": "notif-005",
+    "type": "conversation",
+    "icon": "MessageSquare",
+    "title": "High Volume Detected",
+    "description": "Query volume is 40% above average today (28 queries vs 20 daily average). All systems normal.",
+    "timestamp": "2026-07-29T08:49:49.602924+00:00",
+    "read": true,
+    "priority": "warning"
+  },
+  {
+    "id": "notif-006",
+    "type": "document",
+    "icon": "FileText",
+    "title": "New Document Uploaded",
+    "description": "clinic_services.pdf (1.8 MB, 8 pages) was uploaded and is being processed into chunks.",
+    "timestamp": "2026-07-28T15:49:49.602924+00:00",
+    "read": true,
+    "priority": "info"
+  },
+  {
+    "id": "notif-007",
+    "type": "system",
+    "icon": "Shield",
+    "title": "Security Scan Complete",
+    "description": "Weekly security scan completed. No vulnerabilities detected. All dependencies up to date.",
+    "timestamp": "2026-07-27T08:49:49.602924+00:00",
+    "read": true,
+    "priority": "info"
+  },
+  {
+    "id": "notif-008",
+    "type": "escalation",
+    "icon": "AlertTriangle",
+    "title": "Multiple Escalations Today",
+    "description": "3 queries were escalated in the past 24 hours. Review recommended to improve answer quality.",
+    "timestamp": "2026-07-26T13:49:49.602924+00:00",
+    "read": true,
+    "priority": "warning"
+  },
+  {
+    "id": "notif-009",
+    "type": "document",
+    "icon": "FileText",
+    "title": "Document Re-indexed",
+    "description": "restaurant_menu.pdf was re-indexed with improved chunking strategy. Chunk count: 47 (+5).",
+    "timestamp": "2026-07-26T09:49:49.602924+00:00",
+    "read": true,
+    "priority": "info"
+  },
+  {
+    "id": "notif-010",
+    "type": "conversation",
+    "icon": "TrendingUp",
+    "title": "Positive Feedback Received",
+    "description": "5 users rated answers as 'Very Helpful' in the past week. Overall satisfaction: 4.6/5.0.",
+    "timestamp": "2026-07-25T15:49:49.602924+00:00",
+    "read": true,
+    "priority": "info"
+  },
+  {
+    "id": "notif-011",
+    "type": "system",
+    "icon": "Database",
+    "title": "Vector Store Optimized",
+    "description": "Embedding index has been optimized. Average query latency reduced by 18% (412ms \u2192 342ms).",
+    "timestamp": "2026-07-25T06:49:49.602924+00:00",
+    "read": true,
+    "priority": "info"
+  },
+  {
+    "id": "notif-012",
+    "type": "escalation",
+    "icon": "AlertTriangle",
+    "title": "Document Coverage Gap",
+    "description": "42% of escalated queries relate to pricing \u2014 consider adding a dedicated pricing document.",
+    "timestamp": "2026-07-24T10:49:49.602924+00:00",
+    "read": true,
+    "priority": "warning"
+  },
+  {
+    "id": "notif-013",
+    "type": "conversation",
+    "icon": "Users",
+    "title": "New User Milestone",
+    "description": "FlowMind AI has served 500+ unique users this month. Active daily users: 45.",
+    "timestamp": "2026-07-24T08:49:49.602924+00:00",
+    "read": true,
+    "priority": "info"
+  },
+  {
+    "id": "notif-014",
+    "type": "document",
+    "icon": "Upload",
+    "title": "Upload Limit Reminder",
+    "description": "You've used 3 of 10 document slots on the free tier. Upgrade for unlimited documents.",
+    "timestamp": "2026-07-23T14:49:49.602924+00:00",
+    "read": true,
+    "priority": "info"
+  },
+  {
+    "id": "notif-015",
+    "type": "system",
+    "icon": "Zap",
+    "title": "Performance Report",
+    "description": "Weekly performance: 99.7% uptime, avg response 342ms, 0 errors. All systems healthy.",
+    "timestamp": "2026-07-23T07:49:49.602924+00:00",
+    "read": true,
+    "priority": "info"
+  }
+]

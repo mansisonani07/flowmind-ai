@@ -1,0 +1,87 @@
+{
+  "total_documents": 3,
+  "total_queries": 247,
+  "avg_confidence": 0.873,
+  "escalation_rate": 0.042,
+  "active_sessions": 12,
+  "response_time_avg": 342,
+  "queries_today": 28,
+  "documents_processed": 3,
+  "chart_data": [
+    {
+      "date": "Mon",
+      "queries": 12
+    },
+    {
+      "date": "Tue",
+      "queries": 8
+    },
+    {
+      "date": "Wed",
+      "queries": 15
+    },
+    {
+      "date": "Thu",
+      "queries": 22
+    },
+    {
+      "date": "Fri",
+      "queries": 18
+    },
+    {
+      "date": "Sat",
+      "queries": 25
+    },
+    {
+      "date": "Sun",
+      "queries": 20
+    }
+  ],
+  "recent_conversations": [
+    {
+      "id": "conv-001",
+      "question": "What are the vegetarian options on the menu?",
+      "answer_preview": "The restaurant offers several vegetarian dishes including Grilled Vegetable Pasta, Margherita Pizza, Garden Salad, and Mushroom Risotto. All vegetarian items are clearly marked with a green leaf icon on the menu.",
+      "confidence": 0.95,
+      "timestamp": "2026-07-30T15:19:49.602924+00:00",
+      "source_document": "restaurant_menu.pdf",
+      "escalated": false
+    },
+    {
+      "id": "conv-002",
+      "question": "What are your clinic's opening hours?",
+      "answer_preview": "The clinic is open Monday to Friday from 8:00 AM to 6:00 PM, and Saturday from 9:00 AM to 1:00 PM. The clinic is closed on Sundays and public holidays.",
+      "confidence": 0.98,
+      "timestamp": "2026-07-30T13:49:49.602924+00:00",
+      "source_document": "clinic_services.pdf",
+      "escalated": false
+    },
+    {
+      "id": "conv-003",
+      "question": "How much does the premium coaching package cost?",
+      "answer_preview": "The premium coaching package is priced at $299/month and includes 8 one-on-one sessions, unlimited messaging support, personalized action plans, and quarterly progress reviews.",
+      "confidence": 0.91,
+      "timestamp": "2026-07-30T12:49:49.602924+00:00",
+      "source_document": "coaching_faq.pdf",
+      "escalated": false
+    },
+    {
+      "id": "conv-004",
+      "question": "Do you offer gluten-free options?",
+      "answer_preview": "Yes, we have a dedicated gluten-free menu section. Popular items include GF Pizza, Quinoa Bowl, and Rice Flour Pancakes. All gluten-free items are prepared in a separate kitchen area.",
+      "confidence": 0.88,
+      "timestamp": "2026-07-30T10:49:49.602924+00:00",
+      "source_document": "restaurant_menu.pdf",
+      "escalated": true
+    },
+    {
+      "id": "conv-005",
+      "question": "What insurance plans do you accept?",
+      "answer_preview": "We accept most major insurance plans including Blue Cross Blue Shield, Aetna, Cigna, United Healthcare, and Medicare. Please contact our billing department for specific plan verification.",
+      "confidence": 0.92,
+      "timestamp": "2026-07-30T07:49:49.602924+00:00",
+      "source_document": "clinic_services.pdf",
+      "escalated": false
+    }
+  ]
+}

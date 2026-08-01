@@ -1,0 +1,370 @@
+{
+  "name": "WhatsApp Query Handler",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "whatsapp",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "a1b2c3d4-1111-4aaa-b111-000000000001",
+      "name": "WhatsApp Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        220,
+        300
+      ],
+      "webhookId": "whatsapp-webhook-trigger"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "assign-user-phone",
+              "name": "userPhone",
+              "value": "={{ $json.Body.From }}",
+              "type": "string"
+            },
+            {
+              "id": "assign-message",
+              "name": "message",
+              "value": "={{ $json.Body.Body }}",
+              "type": "string"
+            },
+            {
+              "id": "assign-message-sid",
+              "name": "messageSid",
+              "value": "={{ $json.Body.MessageSid }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1b2c3d4-2222-4bbb-c222-000000000002",
+      "name": "Extract Twilio Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        460,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.FASTAPI_URL }}/query",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ question: $json.message, user_phone: $json.userPhone }) }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "a1b2c3d4-3333-4ccc-d333-000000000003",
+      "name": "Query RAG Engine",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        700,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "condition-confidence",
+              "leftValue": "={{ $json.confidence }}",
+              "rightValue": 0.6,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a1b2c3d4-4444-4ddd-e444-000000000004",
+      "name": "Check Confidence",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        940,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.twilio.com/2010-04-01/Accounts/{{ $env.TWILIO_ACCOUNT_SID }}/Messages.json",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "specifyBody": "urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "From",
+              "value": "={{ $env.TWILIO_PHONE_NUMBER }}"
+            },
+            {
+              "name": "To",
+              "value": "={{ $json.userPhone }}"
+            },
+            {
+              "name": "Body",
+              "value": "={{ $json.answer }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1b2c3d4-5555-4eee-f555-000000000005",
+      "name": "Send Answer",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1180,
+        180
+      ],
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "twilio-credentials",
+          "name": "Twilio API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.twilio.com/2010-04-01/Accounts/{{ $env.TWILIO_ACCOUNT_SID }}/Messages.json",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "specifyBody": "urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "From",
+              "value": "={{ $env.TWILIO_PHONE_NUMBER }}"
+            },
+            {
+              "name": "To",
+              "value": "={{ $json.userPhone }}"
+            },
+            {
+              "name": "Body",
+              "value": "I don't have enough information to answer that. Let me connect you with a human agent. Please hold on..."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1b2c3d4-6666-4aaa-a666-000000000006",
+      "name": "Send Escalation Message",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1180,
+        420
+      ],
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "twilio-credentials",
+          "name": "Twilio API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.telegram.org/bot{{ $env.TELEGRAM_BOT_TOKEN }}/sendMessage",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ chat_id: $env.TELEGRAM_ADMIN_CHAT_ID, text: '🚨 ESCALATION ALERT\n\nPhone: ' + $json.userPhone + '\nQuestion: ' + $json.question + '\nConfidence: ' + ($json.confidence * 100).toFixed(1) + '%\nTimestamp: ' + new Date().toISOString(), parse_mode: 'HTML' }) }}",
+        "options": {}
+      },
+      "id": "a1b2c3d4-7777-4bbb-b777-000000000007",
+      "name": "Alert Admin on Telegram",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1420,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $env.GOOGLE_SHEETS_ID }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Conversations",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp": "={{ new Date().toISOString() }}",
+            "User Phone": "={{ $('Extract Twilio Fields').item.json.userPhone }}",
+            "Question": "={{ $('Extract Twilio Fields').item.json.message }}",
+            "Answer": "={{ $('Query RAG Engine').item.json.answer || 'ESCALATED' }}",
+            "Confidence": "={{ $('Query RAG Engine').item.json.confidence || 0 }}",
+            "Escalated": "={{ $json.confidence < 0.6 ? 'Yes' : 'No' }}"
+          }
+        },
+        "options": {}
+      },
+      "id": "a1b2c3d4-8888-4ccc-c888-000000000008",
+      "name": "Log Conversation",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1660,
+        300
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "google-sheets-credentials",
+          "name": "Google Sheets API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ status: 'ok', messageSid: $('Extract Twilio Fields').item.json.messageSid }) }}",
+        "options": {}
+      },
+      "id": "a1b2c3d4-9999-4ddd-d999-000000000009",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1900,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "WhatsApp Webhook": {
+      "main": [
+        [
+          {
+            "node": "Extract Twilio Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Twilio Fields": {
+      "main": [
+        [
+          {
+            "node": "Query RAG Engine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Query RAG Engine": {
+      "main": [
+        [
+          {
+            "node": "Check Confidence",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Confidence": {
+      "main": [
+        [
+          {
+            "node": "Send Answer",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send Escalation Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Answer": {
+      "main": [
+        [
+          {
+            "node": "Log Conversation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Escalation Message": {
+      "main": [
+        [
+          {
+            "node": "Alert Admin on Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Alert Admin on Telegram": {
+      "main": [
+        [
+          {
+            "node": "Log Conversation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log Conversation": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "1",
+  "meta": {
+    "instanceId": "flowmind-prod"
+  }
+}

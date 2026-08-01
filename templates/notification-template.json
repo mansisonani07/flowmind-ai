@@ -1,0 +1,9 @@
+{
+  "types": [
+    "info",
+    "success",
+    "warning",
+    "error",
+    "escalation"
+  ]
+}

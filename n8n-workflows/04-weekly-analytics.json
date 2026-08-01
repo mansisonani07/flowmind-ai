@@ -1,0 +1,97 @@
+{
+  "name": "Weekly Analytics Report",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 20,
+              "minute": 0,
+              "dayOfWeek": 0
+            }
+          ]
+        },
+        "timeZone": "UTC",
+        "options": {}
+      },
+      "id": "d1b2c3d4-1111-4aaa-b111-000000000001",
+      "name": "Weekly Schedule",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [220, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $env.FASTAPI_URL }}/stats?days=7",
+        "options": { "timeout": 15000 }
+      },
+      "id": "d1b2c3d4-2222-4bbb-c222-000000000002",
+      "name": "Fetch Weekly Stats",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const stats = $input.first().json;\nconst totalQueries = stats.total_queries || 0;\nconst avgConfidence = stats.avg_confidence != null ? (stats.avg_confidence * 100).toFixed(1) : 'N/A';\nconst escalations = stats.escalations || 0;\nconst resolved = totalQueries - escalations;\nconst resolutionRate = totalQueries > 0 ? ((resolved / totalQueries) * 100).toFixed(1) : 'N/A';\nconst totalDocuments = stats.total_documents || 0;\nconst avgResponseTime = stats.avg_response_time != null ? (stats.avg_response_time / 1000).toFixed(2) + 's' : 'N/A';\nconst topQuestions = (stats.top_questions || []).slice(0, 5).map(function(q, i) { return (i + 1) + '. ' + q; }).join('\\n');\nconst startDate = new Date();\nstartDate.setDate(startDate.getDate() - 7);\nconst endDate = new Date();\nconst formatDate = function(d) { return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }); };\nconst message = '📈 FlowMind Weekly Analytics\\n📅 ' + formatDate(startDate) + ' - ' + formatDate(endDate) + '\\n\\n' + '🔍 Total Queries: ' + totalQueries + '\\n' + '✅ Resolved: ' + resolved + '\\n' + '🚨 Escalated: ' + escalations + '\\n' + '📈 Resolution Rate: ' + resolutionRate + '%\\n' + '🧠 Avg Confidence: ' + avgConfidence + '%\\n' + '⏱ Avg Response Time: ' + avgResponseTime + '\\n' + '📄 Total Documents: ' + totalDocuments + '\\n\\n' + '🔥 Top Questions:\\n' + (topQuestions || 'No data');\nreturn [{ json: { message: message, totalQueries: totalQueries, escalations: escalations, avgConfidence: avgConfidence, resolutionRate: resolutionRate, period: formatDate(startDate) + ' to ' + formatDate(endDate) } }];"
+      },
+      "id": "d1b2c3d4-3333-4ccc-d333-000000000003",
+      "name": "Format Weekly Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [700, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.telegram.org/bot{{ $env.TELEGRAM_BOT_TOKEN }}/sendMessage",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ chat_id: $env.TELEGRAM_ADMIN_CHAT_ID, text: $json.message, parse_mode: 'HTML' }) }}",
+        "options": {}
+      },
+      "id": "d1b2c3d4-4444-4ddd-e444-000000000004",
+      "name": "Send to Telegram",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [940, 220]
+    },
+    {
+      "parameters": {
+        "fromEmail": "flowmind@{{ $env.SENDER_DOMAIN || 'example.com' }}",
+        "toEmail": "={{ $env.ADMIN_EMAIL }}",
+        "subject": "={{ 'FlowMind Weekly Report - ' + $json.period }}",
+        "text": "={{ $json.message }}",
+        "options": {}
+      },
+      "id": "d1b2c3d4-5555-4eee-f555-000000000005",
+      "name": "Send via Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [940, 400],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "gmail-credentials",
+          "name": "Gmail"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Weekly Schedule": {
+      "main": [[{ "node": "Fetch Weekly Stats", "type": "main", "index": 0 }]]
+    },
+    "Fetch Weekly Stats": {
+      "main": [[{ "node": "Format Weekly Report", "type": "main", "index": 0 }]]
+    },
+    "Format Weekly Report": {
+      "main": [[{ "node": "Send to Telegram", "type": "main", "index": 0 }, { "node": "Send via Gmail", "type": "main", "index": 0 }]]
+    }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "versionId": "1",
+  "meta": { "instanceId": "flowmind-prod" }
+}

@@ -1,0 +1,87 @@
+{
+  "daily_queries": [
+    {"date": "2025-07-01", "queries": 12},
+    {"date": "2025-07-02", "queries": 15},
+    {"date": "2025-07-03", "queries": 18},
+    {"date": "2025-07-04", "queries": 8},
+    {"date": "2025-07-05", "queries": 10},
+    {"date": "2025-07-06", "queries": 14},
+    {"date": "2025-07-07", "queries": 22},
+    {"date": "2025-07-08", "queries": 25},
+    {"date": "2025-07-09", "queries": 28},
+    {"date": "2025-07-10", "queries": 20},
+    {"date": "2025-07-11", "queries": 32},
+    {"date": "2025-07-12", "queries": 18},
+    {"date": "2025-07-13", "queries": 15},
+    {"date": "2025-07-14", "queries": 35},
+    {"date": "2025-07-15", "queries": 40},
+    {"date": "2025-07-16", "queries": 38},
+    {"date": "2025-07-17", "queries": 42},
+    {"date": "2025-07-18", "queries": 30},
+    {"date": "2025-07-19", "queries": 22},
+    {"date": "2025-07-20", "queries": 48},
+    {"date": "2025-07-21", "queries": 52},
+    {"date": "2025-07-22", "queries": 45},
+    {"date": "2025-07-23", "queries": 55},
+    {"date": "2025-07-24", "queries": 50},
+    {"date": "2025-07-25", "queries": 58},
+    {"date": "2025-07-26", "queries": 62},
+    {"date": "2025-07-27", "queries": 65},
+    {"date": "2025-07-28", "queries": 70},
+    {"date": "2025-07-29", "queries": 78},
+    {"date": "2025-07-30", "queries": 85}
+  ],
+  "top_questions": [
+    {"question": "What are the vegetarian options?", "count": 28, "avg_confidence": 0.95, "category": "menu"},
+    {"question": "What are your opening hours?", "count": 24, "avg_confidence": 0.98, "category": "general"},
+    {"question": "How much does premium coaching cost?", "count": 21, "avg_confidence": 0.91, "category": "pricing"},
+    {"question": "Do you accept my insurance?", "count": 18, "avg_confidence": 0.92, "category": "billing"},
+    {"question": "Do you offer gluten-free options?", "count": 16, "avg_confidence": 0.88, "category": "dietary"},
+    {"question": "Can I make a reservation?", "count": 14, "avg_confidence": 0.89, "category": "reservation"},
+    {"question": "What lab services are available?", "count": 12, "avg_confidence": 0.96, "category": "services"},
+    {"question": "How do I prepare for my first visit?", "count": 10, "avg_confidence": 0.97, "category": "general"}
+  ],
+  "confidence_distribution": [
+    {"range": "90-100%", "count": 142},
+    {"range": "80-89%", "count": 65},
+    {"range": "70-79%", "count": 28},
+    {"range": "60-69%", "count": 9},
+    {"range": "Below 60%", "count": 3}
+  ],
+  "category_distribution": [
+    {"name": "Menu & Food", "value": 35, "color": "#6366f1"},
+    {"name": "Clinic Services", "value": 28, "color": "#8b5cf6"},
+    {"name": "Coaching & Pricing", "value": 22, "color": "#a78bfa"},
+    {"name": "Billing & Insurance", "value": 10, "color": "#c4b5fd"},
+    {"name": "Other", "value": 5, "color": "#e0e7ff"}
+  ],
+  "response_times": [
+    {"date": "2025-07-01", "p50": 380, "p75": 520, "p95": 890, "p99": 1200},
+    {"date": "2025-07-05", "p50": 365, "p75": 490, "p95": 850, "p99": 1150},
+    {"date": "2025-07-10", "p50": 355, "p75": 470, "p95": 810, "p99": 1100},
+    {"date": "2025-07-15", "p50": 345, "p75": 450, "p95": 780, "p99": 1050},
+    {"date": "2025-07-20", "p50": 340, "p75": 440, "p95": 760, "p99": 1020},
+    {"date": "2025-07-25", "p50": 335, "p75": 430, "p95": 740, "p99": 990},
+    {"date": "2025-07-30", "p50": 342, "p75": 445, "p95": 770, "p99": 1010}
+  ],
+  "heatmap_data": [
+    {"hour": "6am", "mon": 2, "tue": 1, "wed": 3, "thu": 2, "fri": 1, "sat": 0, "sun": 0},
+    {"hour": "8am", "mon": 8, "tue": 10, "wed": 9, "thu": 12, "fri": 11, "sat": 3, "sun": 2},
+    {"hour": "10am", "mon": 15, "tue": 18, "wed": 20, "thu": 22, "fri": 19, "sat": 8, "sun": 5},
+    {"hour": "12pm", "mon": 18, "tue": 22, "wed": 25, "thu": 20, "fri": 28, "sat": 15, "sun": 10},
+    {"hour": "2pm", "mon": 22, "tue": 20, "wed": 18, "thu": 25, "fri": 24, "sat": 12, "sun": 8},
+    {"hour": "4pm", "mon": 15, "tue": 12, "wed": 14, "thu": 16, "fri": 18, "sat": 10, "sun": 6},
+    {"hour": "6pm", "mon": 10, "tue": 8, "wed": 9, "thu": 11, "fri": 14, "sat": 18, "sun": 12},
+    {"hour": "8pm", "mon": 5, "tue": 4, "wed": 6, "thu": 7, "fri": 10, "sat": 15, "sun": 10},
+    {"hour": "10pm", "mon": 2, "tue": 1, "wed": 2, "thu": 3, "fri": 5, "sat": 8, "sun": 6}
+  ],
+  "summary": {
+    "total_queries": 247,
+    "avg_confidence": 87.3,
+    "escalation_rate": 4.2,
+    "avg_response_ms": 342,
+    "most_active_day": "Friday",
+    "peak_hour": "12 PM - 2 PM",
+    "top_document": "restaurant_menu.pdf"
+  }
+}
